@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RealFill">
+  <meta name="keywords" content="RealFill">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RealFill</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body publication-header">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1">RealFill: Reference-Driven Generation for Authentic Image Completion</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://lumingtang.info/">Luming Tang</a><sup>1,2</sup>,
+              <a href="https://natanielruiz.github.io/">Nataniel Ruiz</a><sup>1</sup>, 
+              <a href="https://github.com/qinghao1">Qinghao Chu</a><sup>1</sup>, 
+              <a href="https://people.csail.mit.edu/yzli/">Yuanzhen Li</a><sup>1</sup>, 
+              <a href="https://holynski.org/">Aleksander Holynski</a><sup>1</sup>,
+              <a href="https://scholar.google.com/citations?hl=en&user=0VQ1sjcAAAAJ">David E. Jacobs</a><sup>1</sup>,<br>
+              <a href="https://www.cs.cornell.edu/~bharathh/">Bharath Hariharan</a><sup>2</sup>, 
+              <a href="https://scholar.google.co.il/citations?user=Zi5KiDsAAAAJ">Yael Pritch</a><sup>1</sup>, 
+              <a href="https://nealwadhwa.com/">Neal Wadhwa</a><sup>1</sup>, 
+              <a href="https://kfiraberman.github.io/">Kfir Aberman</a><sup>1</sup>, 
+              <a href="https://people.csail.mit.edu/mrub/">Michael Rubinstein</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Google Research, <sup>2</sup>Cornell University</span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2306.03881"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div align="center" style="margin-top:0px; margin-bottom:0px;">
+  <div class="carousel-teaser-padding">
+    <!-- <div class="hero-body"> -->
+      
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-toby">
+            <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/teaser_boy_compressed.mp4" /> 
+            </video>
+          </div>
+
+          <div class="item item-toby">
+            <video poster="" autoplay playsinline muted loop>
+              <source type="video/mp4" src="static/videos/teaser_girl_compressed.mp4" />
+            </video>
+          </div>
+        
+        </div>
+      </div>
+
+      <!-- <div class="container is-max-desktop">
+        <video poster="" autoplay playsinline muted loop>
+            <source type="video/mp4" src="static/videos/teaser.mp4" /> 
+        </video>
+      </div> -->
+
+      <h3 class="subtitle has-text-centered">
+          <font size="4">
+          <!-- <span class="dnerf"></span> -->
+          Given a few reference images that capture roughly the same scene, <strong>RealFill</strong> is able to inpaint
+          or uncrop the target image with <strong>high-quality</strong> and <strong>faithful</strong> contents,<br>
+          even when the changes between reference and target are very challenging including viewpoint, lighting, 
+          aperture, style, or object movements.
+        </font>
+      </h3>
+
+    <!-- </div> -->
+  </div>
+</div> 
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work we propose RealFill, a novel generative approach for image completion that 
+            enables uncropping or inpainting missing regions of an image with the content that 
+            "should have been there". Specifically, we propose a way of personalizing a generative 
+            inpainting model using only a few reference images of a scene, such that it can be used 
+            to fill (uncrop or inpaint) a target image of the scene from a different viewpoint, 
+            in a different configuration, or under different lighting or environmental conditions. 
+            Recent advances in generative image models allow for uncropping or inpainting regions 
+            of a target image, yet they necessarily generate hallucinations in these regions since 
+            they do not have sufficient knowledge about the true scene. In contrast, we propose a 
+            novel method that integrates knowledge from other images in order to avoid excessive 
+            hallucination. Our method does not require reference images to be aligned with the target image, 
+            and can be taken from drastically varying view angles, lighting conditions, or other large changes. 
+            Our method produces highly realistic images and is capable of harmonizing differences a 
+            large variety of differences between the reference and target images, such as changes in 
+            lighting, style, focal distance, subject motion, and camera type. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section grey">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Method</h2>
+  </div>
+  <div align="center" style="margin-top:0px;" style="margin-bottom:0px;"></div>
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> 
+            <strong>Authentic Image Completion</strong>: 
+            Given a few (no more than 5) casually captured reference images, our goal is to 
+            outpaint or inpaint a target image of roughly the same scene. The output image is 
+            expected to not only be plausible and photo-realistic, but to also be faithful to 
+            the reference images by recovering scene structures and details that exist in them. 
+            In essence, we aim to generate what "should have been there'' instead of what "could have been there''. 
+            This is a challenging problem given there are few constraints on the inputs. 
+            For example, the images could be taken from very different viewpoints with unknown camera poses. 
+            They could also have different lighting conditions or styles, and the scene could 
+            even be non-static and vary across images.
+          </p>
+          <p>  
+            <strong>RealFill</strong>:
+            we present a simple yet effective reference-driven image completion framework here:
+            For a given scene, we first create a personalized generative model by fine-tuning a pre-trained 
+            inpainting diffusion model on the reference and target images. 
+            This fine-tuning process is designed such that the adapted model not only 
+            maintains a good image prior, but also learns the contents inside the scene.
+            We then use this fine-tuned model to fill the missing region of the target image.
+          </p>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <div>
+        <video id="demo_cat" class="demo-section-video" autoplay muted loop playsinline>
+          <source src="static/videos/method_compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+  </div>
+  </div>
+
+
+</section>
+
+
+<section class="section hero is-small">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Results</h2>
+  </div>
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> 
+            Given the reference images on the left, RealFill is able to out/in-paint 
+            the target image on the right, resulting in high-quality images that are 
+            both photo-realistic and also faithful to the references, 
+            even when there're large differences between references and targets including 
+            viewpoint, aperture, lighting, image style, and moving objects.
+          </p>
+        </div>
+      </div>
+  </div>
+
+
+  <div class="carousel-extra-padding">
+    <div class="hero-body carousel-body-vert-padding">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/flowerwoman_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/jesusheart_compressed.mp4" /> 
+              </video>
+            </div>
+          </div>
+
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/bottleplant_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/horselamp_compressed.mp4" /> 
+              </video>
+            </div>  
+          </div>
+
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/queensboro_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/roofcup_compressed.mp4" /> 
+              </video>
+            </div>  
+          </div>
+
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/shibaosleep_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/shibaoeat_compressed.mp4" /> 
+              </video>
+            </div>  
+          </div>
+
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/mandaynight_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/vegas_compressed.mp4" /> 
+              </video>
+            </div>  
+          </div>
+
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/yellow_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/bedroom_compressed.mp4" /> 
+              </video>
+            </div>  
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<section class="hero is-small section grey">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Comparison with Baselines</h2>
+  </div>
+ 
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> 
+            A side-by-side comparative analysis is presented between 
+            RealFill and baseline methods, accompanied by the corresponding 
+            ground-truth images. To enhance visual clarity, transparent white masks 
+            are superimposed onto the original regions of the target images, 
+            while the filled regions remain unaltered. 
+            <ul>
+              <li>
+                Paint-by-Example is unable to recover the scene because 
+                it relies on the CLIP embeddings of the reference image, 
+                which only captures the high-level semantic information.
+              </li> 
+              <li>
+                Prompt-based filling approaches are 
+                limited by the expressive power of natural language.
+              </li> 
+            </ul>
+            In contrast, RealFill not only demonstrates proficiency in 
+            generating high-quality images but also exhibits a notably superior 
+            fidelity in scene recovery when contrasted with alternative approaches, 
+            which often yield substantially divergent results when compared to the ground-truth images.
+            
+          </p> 
+        </div>
+        <!-- <img style='height: auto; width: 100%; object-fit: contain' src="static/images/comparison.jpg"> -->
+      </div>
+  </div>
+
+  <!-- <div class="container is-max-desktop"> -->
+  <div class="comparison-with-baseline">
+      <img style='height: auto; width: 100%; object-fit: contain' src="static/images/comparison_compressed.jpeg">
+  </div>
+
+
+</section>
+
+
+
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">Limitations</h3>
+        
+        <div class="content has-text-justified">
+          
+          <ul>
+            <li>
+              RealFill need to go through a finetuning process, 
+              so it's relatively slow and not realtime.
+            </li>
+
+            <li>
+              When the viewpoint change between reference and target is dramatic, 
+              RealFill fails to recover the precise 3D scene faithfully, especially when there's only single reference image. 
+            </li>
+
+            <li>
+              RealFill relies on the image prior inherited from the base pre-trained model, 
+              so it would also fail to handle the cases that the base model doesn't generate well, 
+              e.g., text, human faces, or body parts.
+            </li>
+          </ul>
+        </div>
+        
+        <div class="comparison-with-baseline">
+        <!-- <div class="container is-max-desktop"> -->
+          <img style='object-fit: contain; padding: 0 10%' src="static/images/failure_compressed.jpeg">
+        </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section grey">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">Acknowledgements</h3>
+      <div class="content has-text-justified">
+        <p>
+          We would like to thank Rundi Wu, Qianqian Wang, Ethan Weber, Zhengqi Li, Kyle Genova, Boyang Deng 
+          for valuable discussion and feedbacks, thank Zeya Peng, Rundi Wu, Shan Nan for 
+          their contribution to the evaluation dataset, and thank Zeya Peng for her help on the project page.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">BibTeX</h3>
+    </div>
+ </div>
+  <div class="container is-max-desktop content">
+    <pre><code>
+@article{tang2023realfill,
+  title={RealFill: Reference-Driven Generation for Authentic Image Completion},
+  author={Tang, Luming and Ruiz, Nataniel and Qinghao, Chu and Li, Yuanzhen and Holynski, Aleksander and 
+    Jacobs, David E and Hariharan, Bharath and Pritch, Yael and Wadhwa, Neal and Aberman, Kfir and Rubinstein, Michael},
+  journal={arXiv},
+  year={2023}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div align="center" class="container">
+    <div class="columns is-centered">
+        <div class="content">
+            This website is borrowed from <a href="https://diffusionfeatures.github.io/">Diffusion Features</a>.
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
