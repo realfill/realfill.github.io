@@ -114,7 +114,7 @@
             </video>
           </div>
         </div>
-        
+
       </div>
 
       <!-- <div class="container is-max-desktop">
@@ -372,8 +372,10 @@
                 <!-- Paint-by-Example is unable to recover the scene because 
                 it relies on the CLIP embeddings of the reference image, 
                 which only captures the high-level semantic information. -->
-                Paint-by-Example loses fidelity with the reference images because 
-                it relies on CLIP embeddings, which only capture high-level semantic information.
+                <!-- Paint-by-Example loses fidelity with the reference images because 
+                it relies on CLIP embeddings, which only capture high-level semantic information. -->
+                Paint-by-Example does not achieve high scene fidelity because it 
+                relies on CLIP embeddings, which only capture high-level semantic information.
               </li> 
               <li>
                 <!-- Prompt-based filling approaches are 
@@ -415,19 +417,27 @@
           
           <ul>
             <li>
-              RealFill need to go through a fine-tuning process, 
-              so it's relatively slow and not realtime.
+              <!-- RealFill need to go through a fine-tuning process, 
+              so it's relatively slow and not realtime. -->
+              RealFill needs to go through a gradient-based fine-tuning process 
+              on input images, rendering it relatively slow.
             </li>
 
             <li>
-              When the viewpoint change between reference and target is dramatic, 
-              RealFill fails to recover the precise 3D scene faithfully, especially when there's only single reference image. 
+              <!-- When the viewpoint change between reference and target is dramatic, 
+              RealFill fails to recover the precise 3D scene faithfully, especially when there's only single reference image.  -->
+              When viewpoint change between reference and target images is very large, 
+              RealFill tends to fail at recovering the 3D scene, especially when 
+              there is only a single reference image.
             </li>
 
             <li>
-              RealFill relies on the image prior inherited from the base pre-trained model, 
+              <!-- RealFill relies on the image prior inherited from the base pre-trained model, 
               so it would also fail to handle the cases that the base model doesn't generate well, 
-              e.g., text, human faces, or body parts.
+              e.g., text, human faces, or body parts. -->
+              Because RealFill mainly relies on the image prior inherited from the 
+              base pre-trained model, it also fails to handle cases where that are 
+              challenging for the base model, such as text for Stable Diffusion.
             </li>
           </ul>
         </div>
