@@ -103,10 +103,16 @@
       <h3 class="subtitle has-text-centered">
           <font size="4">
           <!-- <span class="dnerf"></span> -->
-          Given a few reference images that capture roughly the same scene, <strong>RealFill</strong> is able to inpaint
-          or uncrop the target image with <strong>high-quality</strong> and <strong>faithful</strong> contents,<br>
-          even when the changes between reference and target are very challenging including viewpoint, lighting, 
-          aperture, style, or object movements.
+
+          Given a few references that capture roughly the same scene, 
+          <strong><em>RealFill</em></strong> is able to
+          <!-- uncrop or inpaint  -->
+          complete the target image with 
+          <strong>high-quality</strong> and <strong>faithful</strong> contents.
+          <!-- ,<br>
+          even when the changes between reference and 
+          target are very challenging including viewpoint, lighting, 
+          aperture, style, or object movements. -->
         </font>
       </h3>
 
@@ -126,9 +132,9 @@
             and inpainting models that can produce high-quality, plausible image 
             content in unknown regions, but the content these models hallucinate is 
             necessarily inauthentic, since the models lack sufficient context about 
-            the true scene. In this work, we propose <strong>RealFill</strong>, a novel 
+            the true scene. In this work, we propose <strong><em>RealFill</em></strong>, a novel 
             generative approach for image completion that fills in missing regions 
-            of an image with the content that <u>should have been there</u>. 
+            of an image with the content that <u><em>should have been there</em></u>. 
             RealFill is a generative inpainting model that is personalized using 
             only a few reference images of a scene. These reference images do not 
             have to be aligned with the target image, and can be taken with drastically 
@@ -156,7 +162,7 @@
         <div class="content has-text-justified">
           <p> 
             <strong>Authentic Image Completion</strong>: 
-            Given a few (up to five) casually captured reference images, our goal is to 
+            <!-- Given a few (up to five) casually captured reference images, our goal is to 
             outpaint or inpaint a target image of roughly the same scene. The output image is 
             expected to not only be plausible and photo-realistic, but to also be faithful to 
             the reference images by recovering scene structures and details that exist in them. 
@@ -164,16 +170,30 @@
             This is a challenging problem given there are few constraints on the inputs. 
             For example, the images could be taken from very different viewpoints with unknown camera poses. 
             They could also have different lighting conditions or styles, and the scene could 
-            even be non-static and vary across images.
+            even be non-static and vary across images. -->
+            Given a few reference images (up to five) and one target image that 
+            captures roughly the same scene (but in a different arrangement or appearance), 
+            we aim to fill missing regions of the target image with high-quality image 
+            content that is faithful to the originally captured scene. Note that 
+            for the sake of practical benefit, we focus particularly on the 
+            more challenging, unconstrained setting in which the target 
+            and reference images may have very different viewpoints, 
+            environmental conditions, camera apertures, image styles, or even moving objects.
           </p>
           <p>  
             <strong>RealFill</strong>:
-            we present a simple yet effective reference-driven image completion framework here:
+            <!-- we present a simple yet effective reference-driven image completion framework here:
             For a given scene, we first create a personalized generative model by fine-tuning a pre-trained 
             inpainting diffusion model on the reference and target images. 
             This fine-tuning process is designed such that the adapted model not only 
             maintains a good image prior, but also learns the contents inside the scene.
-            We then use this fine-tuned model to fill the missing region of the target image.
+            We then use this fine-tuned model to fill the missing region of the target image. -->
+            For a given scene, we first create a personalized generative model by fine-tuning 
+            a pre-trained inpainting diffusion model on the reference and target images. 
+            This fine-tuning process is designed such that the adapted model not only 
+            maintains a good image prior, but also learns the contents, lighting, 
+            and style of the scene in the input images. We then use this fine-tuned model to 
+            fill the missing regions in the target image through a standard diffusion sampling process.
           </p>
       </div>
     </div>
@@ -203,11 +223,11 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p> 
-            Given the reference images on the left, RealFill is able to out/in-paint 
+            Given the reference images on the left, RealFill is able to either uncrop or inpaint 
             the target image on the right, resulting in high-quality images that are 
-            both photo-realistic and also faithful to the references, 
-            even when there're large differences between references and targets including 
-            viewpoint, aperture, lighting, image style, and moving objects.
+            both visually compelling and also faithful to the references, 
+            even when there are large differences between references and targets including 
+            viewpoint, aperture, lighting, image style, and object motion.
           </p>
         </div>
       </div>
@@ -314,26 +334,36 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p> 
-            A side-by-side comparative analysis is presented between 
+            <!-- A side-by-side comparative analysis is presented between 
             RealFill and baseline methods, accompanied by the corresponding 
             ground-truth images. To enhance visual clarity, transparent white masks 
             are superimposed onto the original regions of the target images, 
-            while the filled regions remain unaltered. 
+            while the filled regions remain unaltered.  -->
+            A comparison of RealFill and baseline methods. 
+            Transparent white masks are overlayed on the 
+            unaltered known regions of the target images.
             <ul>
               <li>
-                Paint-by-Example is unable to recover the scene because 
+                <!-- Paint-by-Example is unable to recover the scene because 
                 it relies on the CLIP embeddings of the reference image, 
-                which only captures the high-level semantic information.
+                which only captures the high-level semantic information. -->
+                Paint-by-Example loses fidelity with the reference images because 
+                it relies on CLIP embeddings, which only capture high-level semantic information.
               </li> 
               <li>
-                Prompt-based filling approaches are 
-                limited by the expressive power of natural language.
+                <!-- Prompt-based filling approaches are 
+                limited by the expressive power of natural language. -->
+                Stable Diffusion Inpainting produces plausible results, 
+                they are inconsistent with the reference images because 
+                prompts have limited expressiveness.
               </li> 
             </ul>
-            In contrast, RealFill not only demonstrates proficiency in 
+            <!-- In contrast, RealFill not only demonstrates proficiency in 
             generating high-quality images but also exhibits a notably superior 
             fidelity in scene recovery when contrasted with alternative approaches, 
-            which often yield substantially divergent results when compared to the ground-truth images.
+            which often yield substantially divergent results when compared to the ground-truth images. -->
+            In contrast, RealFill generates high-quality results that have high 
+            fidelity with respect to the reference images. 
             
           </p> 
         </div>
@@ -360,7 +390,7 @@
           
           <ul>
             <li>
-              RealFill need to go through a finetuning process, 
+              RealFill need to go through a fine-tuning process, 
               so it's relatively slow and not realtime.
             </li>
 
