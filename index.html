@@ -122,21 +122,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this work we propose RealFill, a novel generative approach for image completion that 
-            enables uncropping or inpainting missing regions of an image with the content that 
-            "should have been there". Specifically, we propose a way of personalizing a generative 
-            inpainting model using only a few reference images of a scene, such that it can be used 
-            to fill (uncrop or inpaint) a target image of the scene from a different viewpoint, 
-            in a different configuration, or under different lighting or environmental conditions. 
-            Recent advances in generative image models allow for uncropping or inpainting regions 
-            of a target image, yet they necessarily generate hallucinations in these regions since 
-            they do not have sufficient knowledge about the true scene. In contrast, we propose a 
-            novel method that integrates knowledge from other images in order to avoid excessive 
-            hallucination. Our method does not require reference images to be aligned with the target image, 
-            and can be taken from drastically varying view angles, lighting conditions, or other large changes. 
-            Our method produces highly realistic images and is capable of harmonizing differences a 
-            large variety of differences between the reference and target images, such as changes in 
-            lighting, style, focal distance, subject motion, and camera type. 
+            Recent advances in generative imagery have brought forth outpainting 
+            and inpainting models that can produce high-quality, plausible image 
+            content in unknown regions, but the content these models hallucinate is 
+            necessarily inauthentic, since the models lack sufficient context about 
+            the true scene. In this work, we propose <strong>RealFill</strong>, a novel 
+            generative approach for image completion that fills in missing regions 
+            of an image with the content that <u>should have been there</u>. 
+            RealFill is a generative inpainting model that is personalized using 
+            only a few reference images of a scene. These reference images do not 
+            have to be aligned with the target image, and can be taken with drastically 
+            varying viewpoints, lighting conditions, camera apertures, or image styles. 
+            Once personalized, RealFill is able to complete a target image with visually 
+            compelling contents that are faithful to the original scene. 
+            We evaluate RealFill on a new image completion benchmark that covers a set 
+            of diverse and challenging scenarios, and find that it outperforms existing 
+            approaches by a large margin. 
           </p>
         </div>
       </div>
@@ -155,7 +156,7 @@
         <div class="content has-text-justified">
           <p> 
             <strong>Authentic Image Completion</strong>: 
-            Given a few (no more than 5) casually captured reference images, our goal is to 
+            Given a few (up to five) casually captured reference images, our goal is to 
             outpaint or inpaint a target image of roughly the same scene. The output image is 
             expected to not only be plausible and photo-realistic, but to also be faithful to 
             the reference images by recovering scene structures and details that exist in them. 
@@ -284,6 +285,17 @@
             </div>  
           </div>
 
+          <div class="item item-toby">
+            <div class="vertical-videos-in-carousel">
+              <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="static/videos/castle_compressed.mp4" /> 
+              </video>
+              <video poster="" autoplay playsinline muted loop>
+                  <source type="video/mp4" src="static/videos/pumpkinlady_compressed.mp4" /> 
+              </video>
+            </div>  
+          </div>
+
         </div>
       </div>
     </div>
@@ -381,9 +393,12 @@
       <h3 class="title is-3">Acknowledgements</h3>
       <div class="content has-text-justified">
         <p>
-          We would like to thank Rundi Wu, Qianqian Wang, Ethan Weber, Zhengqi Li, Kyle Genova, Boyang Deng 
-          for valuable discussion and feedbacks, thank Zeya Peng, Rundi Wu, Shan Nan for 
-          their contribution to the evaluation dataset, and thank Zeya Peng for her help on the project page.
+          We would like to thank Rundi Wu, Qianqian Wang, Viraj Shah, Ethan Weber, Zhengqi Li, 
+          Kyle Genova, Boyang Deng, Maya Goldenberg, Noah Snavely, Ben Poole, Ben Mildenhall, 
+          Alex Rav-Acha, Pratul Srinivasan, Dor Verbin and Jon Barron for their valuable discussion 
+          and feedbacks, and thank Zeya Peng, Rundi Wu, Shan Nan for their contribution to 
+          the evaluation dataset. A special thanks to Jason Baldridge, Kihyuk Sohn, Kathy Meier-Hellstern, 
+          and Nicole Brichtova for their feedback and support for the project.
         </p>
       </div>
     </div>
@@ -415,7 +430,7 @@
   <div align="center" class="container">
     <div class="columns is-centered">
         <div class="content">
-            This website is borrowed from <a href="https://diffusionfeatures.github.io/">Diffusion Features</a>.
+            This website is modified from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://diffusionfeatures.github.io/">Diffusion Features</a>.
         </div>
       </div>
     </div>
