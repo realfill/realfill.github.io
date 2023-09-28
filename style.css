@@ -3,7 +3,7 @@
     margin-bottom: 0px;
     font-family: 'Varela Round',sans-serif;
     color: #4d4d4d;
-    font-size: 45px;
+    font-size: 50px;
     line-height: 65px;
     font-weight: 700;
     letter-spacing: 4;
@@ -14,8 +14,8 @@
 }
 
 .subheader {
-    margin-top: -10;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 25px;
     font-family: 'Open Sans',sans-serif;
     color: #333;
     font-size: 30px;
