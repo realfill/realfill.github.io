@@ -24,6 +24,9 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 
@@ -33,6 +36,12 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1">RealFill: Reference-Driven Generation for Authentic Image Completion</h1>
+
+          <!-- <div class="title-row">
+            <h1 class="title">RealFill</h1>
+            <h1 class="subheader">Reference-Driven Generation for Authentic Image Completion</h1>
+          </div> -->
+
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://lumingtang.info/">Luming Tang</a><sup>1,2</sup>,
@@ -78,14 +87,14 @@
     <!-- <div class="hero-body"> -->
       
       <div class="container">
-        <div id="teaser-carousel" class="carousel results-carousel">
+        <div id="teaser-carousel" class="carousel teaser-carousel">
           <div class="item item-toby">
             <video poster="" autoplay playsinline muted loop>
                 <source type="video/mp4" src="static/videos/teaser_boy_compressed.mp4" /> 
             </video>
           </div>
 
-          <div class="item item-toby">
+          <div class="item item-toby" class="carousel teaser-carousel">
             <video poster="" autoplay playsinline muted loop>
               <source type="video/mp4" src="static/videos/teaser_girl_compressed.mp4" />
             </video>
@@ -104,11 +113,13 @@
           <font size="4">
           <!-- <span class="dnerf"></span> -->
 
-          Given a few references that capture roughly the same scene, 
-          <strong><em>RealFill</em></strong> is able to
+          <em><strong>RealFill</strong></em>&nbsp; is able to complete the image with <strong>what should have been there</strong>.
+
+          <!-- Given a few references that capture roughly the same scene, 
+          <strong><em>RealFill</em></strong> is able to -->
           <!-- uncrop or inpaint  -->
-          complete the target image with 
-          <strong>high-quality</strong> and <strong>faithful</strong> contents.
+          <!-- complete the target image with 
+          <strong>high-quality</strong> and <strong>faithful</strong> contents. -->
           <!-- ,<br>
           even when the changes between reference and 
           target are very challenging including viewpoint, lighting, 
@@ -201,7 +212,7 @@
 
 
   <br>
-  
+
   <div class="columns is-centered">
     <div class="column is-four-fifths">
       <div style="display: flex; justify-content: center; align-items: center; height: 100%;">

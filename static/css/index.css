@@ -117,6 +117,7 @@ h3 {
   align-items: stretch;
 }
 
+
 .results-carousel video {
   margin: 0 auto;
 }
@@ -157,4 +158,32 @@ h3 {
 
 .comparison-with-baseline {
   margin: 0 15%;
+}
+
+
+.teaser-carousel {
+  overflow: hidden;
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+
+.teaser-carousel .item {
+  margin: 0 10%; 
+  /* distance from video to button */
+
+  overflow: hidden;
+  border: 0px solid #ffffff;
+  border-radius: 0px;
+  padding: 0;
+  font-size: 0;
+  
+  flex-grow: 1;
+  display: flex;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.teaser-carousel video {
+  margin: 0 auto;
 }
