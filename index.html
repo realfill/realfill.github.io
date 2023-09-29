@@ -75,7 +75,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://realfill.github.io"
+                <a href="https://arxiv.org/abs/2309.16668"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -136,18 +136,7 @@
       <h3 class="subtitle has-text-centered">
           <font size="4">
           <!-- <span class="dnerf"></span> -->
-
           <em><strong>RealFill</strong></em>&nbsp; is able to complete the image with <strong>what should have been there</strong>.
-
-          <!-- Given a few references that capture roughly the same scene, 
-          <strong><em>RealFill</em></strong> is able to -->
-          <!-- uncrop or inpaint  -->
-          <!-- complete the target image with 
-          <strong>high-quality</strong> and <strong>faithful</strong> contents. -->
-          <!-- ,<br>
-          even when the changes between reference and 
-          target are very challenging including viewpoint, lighting, 
-          aperture, style, or object movements. -->
         </font>
       </h3>
 
@@ -197,15 +186,6 @@
         <div class="content has-text-justified">
           <p> 
             <strong>Authentic Image Completion</strong>: 
-            <!-- Given a few (up to five) casually captured reference images, our goal is to 
-            outpaint or inpaint a target image of roughly the same scene. The output image is 
-            expected to not only be plausible and photo-realistic, but to also be faithful to 
-            the reference images by recovering scene structures and details that exist in them. 
-            In essence, we aim to generate what "should have been there'' instead of what "could have been there''. 
-            This is a challenging problem given there are few constraints on the inputs. 
-            For example, the images could be taken from very different viewpoints with unknown camera poses. 
-            They could also have different lighting conditions or styles, and the scene could 
-            even be non-static and vary across images. -->
             Given a few reference images (up to five) and one target image that 
             captures roughly the same scene (but in a different arrangement or appearance), 
             we aim to fill missing regions of the target image with high-quality image 
@@ -217,12 +197,6 @@
           </p>
           <p>  
             <strong>RealFill</strong>:
-            <!-- we present a simple yet effective reference-driven image completion framework here:
-            For a given scene, we first create a personalized generative model by fine-tuning a pre-trained 
-            inpainting diffusion model on the reference and target images. 
-            This fine-tuning process is designed such that the adapted model not only 
-            maintains a good image prior, but also learns the contents inside the scene.
-            We then use this fine-tuned model to fill the missing region of the target image. -->
             For a given scene, we first create a personalized generative model by fine-tuning 
             a pre-trained inpainting diffusion model on the reference and target images. 
             This fine-tuning process is designed such that the adapted model not only 
@@ -365,10 +339,10 @@
           <div class="item item-toby">
             <div class="vertical-videos-in-carousel">
               <video poster="" autoplay playsinline muted loop>
-                <source type="video/mp4" src="static/videos/shibaopika_compressed.mp4" /> 
+                <source type="video/mp4" src="static/videos/shibaosofa_compressed.mp4" /> 
               </video>
               <video poster="" autoplay playsinline muted loop>
-                  <source type="video/mp4" src="static/videos/shibaosofa_compressed.mp4" /> 
+                  <source type="video/mp4" src="static/videos/shibaopika_compressed.mp4" /> 
               </video>
             </div>  
           </div>
@@ -390,37 +364,21 @@
   <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          <p> 
-            <!-- A side-by-side comparative analysis is presented between 
-            RealFill and baseline methods, accompanied by the corresponding 
-            ground-truth images. To enhance visual clarity, transparent white masks 
-            are superimposed onto the original regions of the target images, 
-            while the filled regions remain unaltered.  -->
+          <p>
             A comparison of RealFill and baseline methods. 
             Transparent white masks are overlayed on the 
             unaltered known regions of the target images.
             <ul>
               <li>
-                <!-- Paint-by-Example is unable to recover the scene because 
-                it relies on the CLIP embeddings of the reference image, 
-                which only captures the high-level semantic information. -->
-                <!-- Paint-by-Example loses fidelity with the reference images because 
-                it relies on CLIP embeddings, which only capture high-level semantic information. -->
                 Paint-by-Example does not achieve high scene fidelity because it 
                 relies on CLIP embeddings, which only capture high-level semantic information.
               </li> 
               <li>
-                <!-- Prompt-based filling approaches are 
-                limited by the expressive power of natural language. -->
                 Stable Diffusion Inpainting produces plausible results, 
                 they are inconsistent with the reference images because 
                 prompts have limited expressiveness.
               </li> 
             </ul>
-            <!-- In contrast, RealFill not only demonstrates proficiency in 
-            generating high-quality images but also exhibits a notably superior 
-            fidelity in scene recovery when contrasted with alternative approaches, 
-            which often yield substantially divergent results when compared to the ground-truth images. -->
             In contrast, RealFill generates high-quality results that have high 
             fidelity with respect to the reference images. 
             
@@ -449,24 +407,17 @@
           
           <ul>
             <li>
-              <!-- RealFill need to go through a fine-tuning process, 
-              so it's relatively slow and not realtime. -->
               RealFill needs to go through a gradient-based fine-tuning process 
               on input images, rendering it relatively slow.
             </li>
 
             <li>
-              <!-- When the viewpoint change between reference and target is dramatic, 
-              RealFill fails to recover the precise 3D scene faithfully, especially when there's only single reference image.  -->
               When viewpoint change between reference and target images is very large, 
               RealFill tends to fail at recovering the 3D scene, especially when 
               there is only a single reference image.
             </li>
 
             <li>
-              <!-- RealFill relies on the image prior inherited from the base pre-trained model, 
-              so it would also fail to handle the cases that the base model doesn't generate well, 
-              e.g., text, human faces, or body parts. -->
               Because RealFill mainly relies on the image prior inherited from the 
               base pre-trained model, it also fails to handle cases where that are 
               challenging for the base model, such as text for Stable Diffusion.
@@ -516,7 +467,7 @@
   title={RealFill: Reference-Driven Generation for Authentic Image Completion},
   author={Tang, Luming and Ruiz, Nataniel and Qinghao, Chu and Li, Yuanzhen and Holynski, Aleksander and 
     Jacobs, David E and Hariharan, Bharath and Pritch, Yael and Wadhwa, Neal and Aberman, Kfir and Rubinstein, Michael},
-  journal={arXiv},
+  journal={arXiv preprint arXiv:2309.16668},
   year={2023}
 }</code></pre>
   </div>
