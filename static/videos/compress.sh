@@ -5,7 +5,7 @@
 #     ffmpeg -y -i ${NAME}.mp4 -c:v libx264 -crf 23 -an ${NAME}_compressed.mp4
 # done
 
-for NAME in "teaser_girl"
+for NAME in "shibaosofa" "shibaopika"
 do
     ffmpeg -y -i ${NAME}.mp4 -c:v libx264 -crf 23 -an ${NAME}_compressed.mp4
 done
