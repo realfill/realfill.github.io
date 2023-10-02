@@ -79,10 +79,12 @@ $(document).ready(function() {
 
     $('.slick-carousel-teaser').slick({
       infinite: true,
+      lazyLoad: 'ondemand',
     });
 
     $('.slick-carousel-result').slick({
       infinite: true,
+      lazyLoad: 'ondemand',
     });
 
     console.log('slick init');
