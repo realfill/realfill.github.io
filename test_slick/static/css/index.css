@@ -1,0 +1,230 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h3 {
+  font-size: 1.5em !important;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 8px;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+/* .dark-mode .icon {
+  color: white;
+  background-color: black;
+} */
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-header.hero-body {
+  /* apply to div with both classes*/
+  padding-bottom: 0;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.results-carousel {
+  overflow: hidden;
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+
+.carousel-body-vert-padding{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.center-iframe {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* below (within @media block) are only enabled when Not on mobile device */
+@media screen and (min-width: 769px) {
+  .carousel-teaser-padding{
+    padding: 0 0%;
+    /* distance from button to webpage edge */
+  }
+
+  .carousel-extra-padding{
+    padding: 0 15%;
+    /* distance from button to webpage edge */
+  }
+
+  .carousel-spair-padding{
+    padding: 0 8%;
+    /* distance from button to webpage edge */
+  }
+
+  .carousel-homography-padding{
+    padding: 0 15%;
+    /* distance from button to webpage edge */
+  }
+}
+
+.results-carousel .item {
+  margin: 0 10%; 
+  /* distance from video to button */
+
+  overflow: hidden;
+  border: 0px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+  
+  flex-grow: 1;
+  display: flex;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+
+.results-carousel video {
+  margin: 0 auto;
+}
+
+.vertical-videos-in-carousel{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+.section.grey {
+  background-color: #f5f5f5;
+}
+
+.demo-section-videos{
+  margin: 0 24px;
+  gap: 20px;
+  max-width: 1760px; /* 2x 800px videos + horizontal margins */
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 769px) { /* desktop */
+    margin: 0 160px;
+    gap: 40px;
+    flex-direction: row;
+  }
+}
+
+.demo-section-video{
+  border-radius: 10px;
+}
+
+.comparison-with-baseline {
+  margin: 0 15%;
+}
+
+
+.teaser-carousel {
+  overflow: hidden;
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+
+.teaser-carousel .item {
+  margin: 0 10%; 
+  /* distance from video to button */
+
+  overflow: hidden;
+  border: 0px solid #ffffff;
+  border-radius: 0px;
+  padding: 0;
+  font-size: 0;
+  
+  flex-grow: 1;
+  display: flex;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.teaser-carousel video {
+  margin: 0 auto;
+}
+
+
+/* newly-added slick */
+
+.slick-prev:before, .slick-next:before {
+  color: black;
+  font-size: 40px;
+}
+
+.slick-carousel-teaser video {
+  /* width: 100%;
+  display: block; */
+  margin: 0 auto;
+  display: flex;
+  width: 85%;
+}
+
+
+@media screen and (min-width: 769px) {
+  .slick-carousel-teaser-padding{
+    /* padding: 0 10%; */
+    padding: 0 10%;
+    /* distance from button to webpage edge */
+  }
+
+  .slick-carousel-result-padding{
+    padding: 0 15%;
+    /* distance from button to webpage edge */
+  }
+}
+
+.slick-carousel-result video{
+  /* width: 100%;
+  display: block; */
+  
+  /* margin: 0 20%;  */
+  margin: 0 auto;
+  display: flex;
+  width: 85%;
+  margin-bottom: 5px;
+}

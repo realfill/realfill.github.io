@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta name="description" content="RealFill: Reference-Driven Generation for Authentic Image Completion">
+  <meta content="RealFill: Reference-Driven Generation for Authentic Image Completion" property="og:title" />
+  <meta content="RealFill: Reference-Driven Generation for Authentic Image Completion"
+    property="og:description" />
+  <meta content="https://realfill.github.io/static/images/cover.jpg" property="og:image" />
+  <meta content="RealFill: Reference-Driven Generation for Authentic Image Completion" property="twitter:title" />
+  <meta content="RealFill: Reference-Driven Generation for Authentic Image Completion" property="twitter:description" />
+  <meta content="https://realfill.github.io/static/images/cover.jpg" property="twitter:image" />
+  <meta name="keywords" content="RealFill">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RealFill</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/bulma-carousel.min.css"> -->
+
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+
+  <script src="./static/js/jquery-3.6.4.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+  <script src="./static/js/index.js"></script>
+
+  <link href="./style.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <link rel="stylesheet" href="./static/css/index.css">
+
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body publication-header">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <div class="title-row">
+            <h1 class="title">RealFill</h1>
+            <h1 class="subheader">Reference-Driven Generation for Authentic Image Completion</h1>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://lumingtang.info/">Luming Tang</a><sup>1,2</sup>,
+              <a href="https://natanielruiz.github.io/">Nataniel Ruiz</a><sup>1</sup>, 
+              <a href="https://github.com/qinghao1">Qinghao Chu</a><sup>1</sup>, 
+              <a href="https://people.csail.mit.edu/yzli/">Yuanzhen Li</a><sup>1</sup>, 
+              <a href="https://holynski.org/">Aleksander Holynski</a><sup>1</sup>,
+              <a href="https://scholar.google.com/citations?hl=en&user=0VQ1sjcAAAAJ">David E. Jacobs</a><sup>1</sup>,<br/>
+              <a href="https://www.cs.cornell.edu/~bharathh/">Bharath Hariharan</a><sup>2</sup>, 
+              <a href="https://scholar.google.co.il/citations?user=Zi5KiDsAAAAJ">Yael Pritch</a><sup>1</sup>, 
+              <a href="https://nealwadhwa.com/">Neal Wadhwa</a><sup>1</sup>, 
+              <a href="https://kfiraberman.github.io/">Kfir Aberman</a><sup>1</sup>, 
+              <a href="https://people.csail.mit.edu/mrub/">Michael Rubinstein</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Google Research, <sup>2</sup>Cornell University</span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2309.16668"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div align="center" style="margin-top:0px; margin-bottom:0px;">
+  <div class="slick-carousel-teaser-padding">
+
+    <div class="hero-body">
+      <div class="container">
+
+        <div class="slick-carousel-teaser">
+          <div>
+            <video poster="" autoplay playsinline muted loop>
+                <source type="video/mp4" src="../static/videos/teaser_boy_compressed.mp4" /> 
+            </video>
+          </div>
+
+          <div>
+            <video poster="" autoplay playsinline muted loop>
+              <source type="video/mp4" src="../static/videos/teaser_girl_compressed.mp4" />
+            </video>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <!-- <div class="container is-max-desktop">
+        <video poster="" autoplay playsinline muted loop>
+            <source type="video/mp4" src="static/videos/teaser.mp4" /> 
+        </video>
+      </div> -->
+
+      <h3 class="subtitle has-text-centered">
+          <font size="4">
+          <!-- <span class="dnerf"></span> -->
+          <em><strong>RealFill</strong></em>&nbsp; is able to complete the image with <strong>what should have been there</strong>.
+        </font>
+      </h3>
+
+    </div>
+  </div>
+</div> 
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advances in generative imagery have brought forth outpainting 
+            and inpainting models that can produce high-quality, plausible image 
+            content in unknown regions, but the content these models hallucinate is 
+            necessarily inauthentic, since the models lack sufficient context about 
+            the true scene. In this work, we propose <strong><em>RealFill</em></strong>, a novel 
+            generative approach for image completion that fills in missing regions 
+            of an image with the content that <u><em>should have been there</em></u>. 
+            RealFill is a generative inpainting model that is personalized using 
+            only a few reference images of a scene. These reference images do not 
+            have to be aligned with the target image, and can be taken with drastically 
+            varying viewpoints, lighting conditions, camera apertures, or image styles. 
+            Once personalized, RealFill is able to complete a target image with visually 
+            compelling contents that are faithful to the original scene. 
+            We evaluate RealFill on a new image completion benchmark that covers a set 
+            of diverse and challenging scenarios, and find that it outperforms existing 
+            approaches by a large margin. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section grey">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Method</h2>
+  </div>
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> 
+            <strong>Authentic Image Completion</strong>: 
+            Given a few reference images (up to five) and one target image that 
+            captures roughly the same scene (but in a different arrangement or appearance), 
+            we aim to fill missing regions of the target image with high-quality image 
+            content that is faithful to the originally captured scene. Note that 
+            for the sake of practical benefit, we focus particularly on the 
+            more challenging, unconstrained setting in which the target 
+            and reference images may have very different viewpoints, 
+            environmental conditions, camera apertures, image styles, or even moving objects.
+          </p>
+          <p>  
+            <strong>RealFill</strong>:
+            For a given scene, we first create a personalized generative model by fine-tuning 
+            a pre-trained inpainting diffusion model on the reference and target images. 
+            This fine-tuning process is designed such that the adapted model not only 
+            maintains a good image prior, but also learns the contents, lighting, 
+            and style of the scene in the input images. We then use this fine-tuned model to 
+            fill the missing regions in the target image through a standard diffusion sampling process.
+          </p>
+      </div>
+    </div>
+  </div>
+
+
+  <br/>
+
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <video id="method" class="demo-section-video" autoplay muted loop playsinline>
+          <source src="../static/videos/method_compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section hero is-small">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Results</h2>
+  </div>
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> 
+            Given the reference images on the left, RealFill is able to either uncrop or inpaint 
+            the target image on the right, resulting in high-quality images that are 
+            both visually compelling and also faithful to the references, 
+            even when there are large differences between references and targets including 
+            viewpoint, aperture, lighting, image style, and object motion.
+          </p>
+        </div>
+      </div>
+  </div>
+
+
+  <!-- <div class="carousel-extra-padding"> -->
+  <div class="slick-carousel-result-padding">
+    <div class="hero-body carousel-body-vert-padding">
+      <div class="container">
+        
+        <div class="slick-carousel-result">
+
+          <!-- <div class="item"> -->
+          <div>
+            <!-- <div class="vertical-videos-in-carousel"> -->
+              <video autoplay playsinline muted loop>
+                  <source type="video/mp4" src="../static/videos/flowerwoman_compressed.mp4" /> 
+              </video>
+              <video autoplay playsinline muted loop>
+                <source type="video/mp4" src="../static/videos/jesusheart_compressed.mp4" /> 
+              </video>
+            <!-- </div> -->
+          </div>
+
+          <!-- <div class="item"> -->
+          <div>
+            <!-- <div class="vertical-videos-in-carousel"> -->
+              <video autoplay playsinline muted loop>
+                <source type="video/mp4" src="../static/videos/bottleplant_compressed.mp4" /> 
+              </video>
+              <video autoplay playsinline muted loop>
+                  <source type="video/mp4" src="../static/videos/horselamp_compressed.mp4" /> 
+              </video>
+            <!-- </div>   -->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<section class="hero is-small section grey">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Comparison with Baselines</h2>
+  </div>
+ 
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            A comparison of RealFill and baseline methods. 
+            Transparent white masks are overlayed on the 
+            unaltered known regions of the target images.
+            <ul>
+              <li>
+                Paint-by-Example does not achieve high scene fidelity because it 
+                relies on CLIP embeddings, which only capture high-level semantic information.
+              </li> 
+              <li>
+                Stable Diffusion Inpainting produces plausible results, 
+                they are inconsistent with the reference images because 
+                prompts have limited expressiveness.
+              </li> 
+            </ul>
+            In contrast, RealFill generates high-quality results that have high 
+            fidelity with respect to the reference images. 
+            
+          </p> 
+        </div>
+        <!-- <img style='height: auto; width: 100%; object-fit: contain' src="static/images/comparison.jpg"> -->
+      </div>
+  </div>
+
+  <!-- <div class="container is-max-desktop"> -->
+  <div class="comparison-with-baseline">
+      <img style='height: auto; width: 100%; object-fit: contain' src="../static/images/comparison_compressed.jpeg">
+  </div>
+
+
+</section>
+
+
+
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">Limitations</h3>
+        
+        <div class="content has-text-justified">
+          
+          <ul>
+            <li>
+              RealFill needs to go through a gradient-based fine-tuning process 
+              on input images, rendering it relatively slow.
+            </li>
+
+            <li>
+              When viewpoint change between reference and target images is very large, 
+              RealFill tends to fail at recovering the 3D scene, especially when 
+              there is only a single reference image.
+            </li>
+
+            <li>
+              Because RealFill mainly relies on the image prior inherited from the 
+              base pre-trained model, it also fails to handle cases where that are 
+              challenging for the base model, such as text for Stable Diffusion.
+            </li>
+          </ul>
+        </div>
+        
+        <div class="comparison-with-baseline">
+        <!-- <div class="container is-max-desktop"> -->
+          <img style='object-fit: contain; padding: 0 10%' src="../static/images/failure_compressed.jpeg">
+        </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section grey">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">Acknowledgements</h3>
+      <div class="content has-text-justified">
+        <p>
+          We would like to thank Rundi Wu, Qianqian Wang, Viraj Shah, Ethan Weber, Zhengqi Li, 
+          Kyle Genova, Boyang Deng, Maya Goldenberg, Noah Snavely, Ben Poole, Ben Mildenhall, 
+          Alex Rav-Acha, Pratul Srinivasan, Dor Verbin and Jon Barron for their valuable discussion 
+          and feedbacks, and thank Zeya Peng, Rundi Wu, Shan Nan for their contribution to 
+          the evaluation dataset. A special thanks to Jason Baldridge, Kihyuk Sohn, Kathy Meier-Hellstern, 
+          and Nicole Brichtova for their feedback and support for the project.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">BibTeX</h3>
+    </div>
+ </div>
+  <div class="container is-max-desktop content">
+    <pre><code>
+@article{tang2023realfill,
+  title={RealFill: Reference-Driven Generation for Authentic Image Completion},
+  author={Tang, Luming and Ruiz, Nataniel and Qinghao, Chu and Li, Yuanzhen and Holynski, Aleksander and 
+    Jacobs, David E and Hariharan, Bharath and Pritch, Yael and Wadhwa, Neal and Aberman, Kfir and Rubinstein, Michael},
+  journal={arXiv preprint arXiv:2309.16668},
+  year={2023}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div align="center" class="container">
+    <div class="columns is-centered">
+        <div class="content">
+            This website is modified from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://diffusionfeatures.github.io/">Diffusion Features</a>.
+        </div>
+      </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</body>
+</html>

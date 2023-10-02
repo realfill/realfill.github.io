@@ -1,0 +1,25 @@
+.title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Varela Round',sans-serif;
+    color: #4d4d4d;
+    font-size: 50px;
+    line-height: 65px;
+    font-weight: 700;
+    letter-spacing: 4;
+}
+
+.title-row {
+    margin-top: 20px;
+}
+
+.subheader {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 30px;
+    line-height: 44px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
