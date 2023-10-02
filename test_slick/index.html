@@ -29,7 +29,7 @@
   <script src="./static/js/jquery-3.6.4.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
-  <script src="./static/js/index.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
 
   <link href="./style.css" rel="stylesheet" type="text/css" />
 
@@ -240,16 +240,13 @@
         
         <div class="slick-carousel-result">
 
-          <!-- <div class="item"> -->
           <div>
-            <!-- <div class="vertical-videos-in-carousel"> -->
               <video autoplay playsinline muted loop>
                   <source type="video/mp4" src="../static/videos/flowerwoman_compressed.mp4" /> 
               </video>
               <video autoplay playsinline muted loop>
                 <source type="video/mp4" src="../static/videos/jesusheart_compressed.mp4" /> 
               </video>
-            <!-- </div> -->
           </div>
 
           <div>
@@ -323,6 +320,89 @@
                 <source type="video/mp4" src="../static/videos/shibaopika_compressed.mp4" /> 
             </video>
           </div>
+        
+
+        <!-- try data-lazy option but seems to not working for video -->
+        <!-- <div>
+            <video autoplay playsinline muted loop>
+                <source type="video/mp4" data-lazy="../static/videos/flowerwoman_compressed.mp4" /> 
+            </video>
+            <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/jesusheart_compressed.mp4" /> 
+            </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/bottleplant_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/horselamp_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/queensboro_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/roofcup_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/shibaosleep_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/shibaoeat_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/mandaynight_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/vegas_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/yellow_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/bedroom_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/castle_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/pumpkinlady_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/zeyaguitar_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/sushi_compressed.mp4" /> 
+          </video>
+        </div>
+
+        <div>
+          <video autoplay playsinline muted loop>
+            <source type="video/mp4" data-lazy="../static/videos/shibaosofa_compressed.mp4" /> 
+          </video>
+          <video autoplay playsinline muted loop>
+              <source type="video/mp4" data-lazy="../static/videos/shibaopika_compressed.mp4" /> 
+          </video>
+        </div> -->
 
 
         </div>
@@ -464,6 +544,20 @@
 
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.slick-carousel-teaser').slick({
+      infinite: true,
+      lazyLoad: 'ondemand',
+    });
+
+    $('.slick-carousel-result').slick({
+      infinite: true,
+      lazyLoad: 'ondemand',
+    });
+  });
+</script>
 
 </body>
 </html>
