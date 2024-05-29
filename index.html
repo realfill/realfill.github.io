@@ -21,17 +21,14 @@
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <script src="./static/js/jquery-3.6.4.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
-  <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
   <script src="./static/js/index.js"></script>
 
   <link href="style.css" rel="stylesheet" type="text/css" />
@@ -44,8 +41,6 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <!-- <h1 class="title is-1"> <span style="color: orange;">RealFill</span>: Reference-Driven Generation for Authentic Image Completion</h1> -->
-          <!-- <h1 class="title is-1"> RealFill: Reference-Driven Generation for Authentic Image Completion</h1> -->
 
           <div class="title-row">
             <h1 class="title">RealFill</h1>
@@ -71,6 +66,10 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Google Research, <sup>2</sup>Cornell University</span>
           </div>
+
+          <br>
+
+          <h1 style="font-size:24px;font-weight:bold">SIGGRAPH 2024 (Journal Track)</h1>
           
           <div class="column has-text-centered">
             <div class="publication-links">
@@ -94,22 +93,8 @@
 
 <div align="center" style="margin-top:0px; margin-bottom:0px;">
   <div class="carousel-teaser-padding">
-    <!-- <div class="hero-body"> -->
       
       <div class="container">
-
-        <!-- <div id="teaser-carousel" class="carousel teaser-carousel">
-          <div class="item item-boy">
-            <video autoplay playsinline muted loop>
-                <source type="video/mp4" src="static/videos/teaser_boy_compressed.mp4" /> 
-            </video>
-          </div>
-          <div class="item item-girl">
-            <video autoplay playsinline muted loop>
-              <source type="video/mp4" src="static/videos/teaser_girl_compressed.mp4" />
-            </video>
-          </div>
-        </div> -->
 
         <div id="teaser-carousel" class="carousel results-carousel">
           <div class="item">
@@ -127,20 +112,12 @@
 
       </div>
 
-      <!-- <div class="container is-max-desktop">
-        <video poster="" autoplay playsinline muted loop>
-            <source type="video/mp4" src="static/videos/teaser.mp4" /> 
-        </video>
-      </div> -->
-
       <h3 class="subtitle has-text-centered">
           <font size="4">
-          <!-- <span class="dnerf"></span> -->
           <em><strong>RealFill</strong></em>&nbsp; is able to complete the image with <strong>what should have been there</strong>.
         </font>
       </h3>
 
-    <!-- </div> -->
   </div>
 </div> 
 
@@ -364,32 +341,34 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p>
-            A comparison of RealFill and baseline methods. 
-            Transparent white masks are overlayed on the 
+            A comparison of RealFill and baseline methods.
+            Transparent white masks are overlayed on the
             unaltered known regions of the target images.
             <ul>
               <li>
-                Paint-by-Example does not achieve high scene fidelity because it 
+                Paint-by-Example does not achieve high scene fidelity because it
                 relies on CLIP embeddings, which only capture high-level semantic information.
-              </li> 
+              </li>
               <li>
-                Stable Diffusion Inpainting produces plausible results, 
-                they are inconsistent with the reference images because 
+                TransFill outputs low quality images due to the lack of a good image prior
+                and the limitations of its geometry-based pipeline.
+              </li>
+              <li>
+                Photoshop Generative Fill produces plausible results,
+                they are inconsistent with the reference images because
                 prompts have limited expressiveness.
-              </li> 
+              </li>
             </ul>
-            In contrast, RealFill generates high-quality results that have high 
-            fidelity with respect to the reference images. 
+            In contrast, RealFill generates high-quality results that have high
+            fidelity with respect to the reference images.
             
           </p> 
         </div>
-        <!-- <img style='height: auto; width: 100%; object-fit: contain' src="static/images/comparison.jpg"> -->
       </div>
   </div>
 
-  <!-- <div class="container is-max-desktop"> -->
   <div class="comparison-with-baseline">
-      <img style='height: auto; width: 100%; object-fit: contain' src="static/images/comparison_compressed.jpeg">
+    <img style='height: auto; width: 100%; object-fit: contain' src="static/images/quality_5row.jpg">
   </div>
 
 
@@ -425,7 +404,6 @@
         </div>
         
         <div class="comparison-with-baseline">
-        <!-- <div class="container is-max-desktop"> -->
           <img style='object-fit: contain; padding: 0 10%' src="static/images/failure_compressed.jpeg">
         </div>
     </div>
@@ -440,11 +418,13 @@
       <h3 class="title is-3">Acknowledgements</h3>
       <div class="content has-text-justified">
         <p>
+          Luming and Bharath are supported by NSF IIS-2144117.
           We would like to thank Rundi Wu, Qianqian Wang, Viraj Shah, Ethan Weber, Zhengqi Li, 
-          Kyle Genova, Boyang Deng, Maya Goldenberg, Noah Snavely, Ben Poole, Ben Mildenhall, 
-          Alex Rav-Acha, Pratul Srinivasan, Dor Verbin and Jon Barron for their valuable discussion 
-          and feedbacks, and thank Zeya Peng, Rundi Wu, Shan Nan for their contribution to 
-          the evaluation dataset. A special thanks to Jason Baldridge, Kihyuk Sohn, Kathy Meier-Hellstern, 
+          Kyle Genova, Richard Tucker, Boyang Deng, Maya Goldenberg, Noah Snavely, Ben Poole, 
+          Ben Mildenhall, Alex Rav-Acha, Pratul Srinivasan, Dor Verbin, Jon Barron and 
+          all the anonymous reviewers for their valuable discussion and feedbacks, and 
+          thank Zeya Peng, Rundi Wu, Shan Nan for their contribution to the evaluation dataset. 
+          A special thanks to Jason Baldridge, Kihyuk Sohn, Kathy Meier-Hellstern, 
           and Nicole Brichtova for their feedback and support for the project.
         </p>
       </div>
